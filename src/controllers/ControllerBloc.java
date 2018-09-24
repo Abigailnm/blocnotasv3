@@ -17,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JFileChooser; 
+import javax.swing.filechooser.FileNameExtensionFilter; 
 import java.io.PrintWriter;
 
 
@@ -24,6 +26,8 @@ public class ControllerBloc {
     
     ModelBloc modelbloc; // Crea objetos en el  modelo 
     ViewBloc viewbloc; // Crea objetos en la vista
+    JFileChooser archivos = new JFileChooser(); // selector de archivos
+    FileNameExtensionFilter extensiones = new FileNameExtensionFilter("Archivos de Texto", "txt");
    
     ActionListener actionlistener = new ActionListener() {
         @Override
@@ -49,15 +53,28 @@ public class ControllerBloc {
     
     
     public void jmi_leer_action_performed() {
-        this.readFile(modelbloc.getPath()); // Invoca al método "readFile" 
+        archivos.setFileFilter(extensiones); //extensiones 
+        archivos.showOpenDialog(viewbloc.jfc_cuadro); // abrir un archivo.
+        File archivo = archivos.getSelectedFile(); // Obtiene el archivo y lo guarda em la variable "archivo".
+        String ruta = archivo.getPath(); // Guarda la ruta del archivo obtenido en la variable "ruta".
+        
+        modelbloc.setPath(ruta);
+        this.readFile(modelbloc.getPath()); // Invoca método
     }
     
     /**
      * Método para el ítem "Guardar" del menú (ViewBlocNotasv1).
      */
     public void jmi_guardar_action_performed() {
-        modelbloc.setMessage(viewbloc.jta_bloc.getText()); // Asigna el contenido del área de texto (interfaz) a la variable "message".
-        this.writeFile(modelbloc.getPath(), modelbloc.getMessage()); // Invoca al método "writeFile" y le da como parámetros el contenido de la variable "path" y de la variable "message" (ubicadas en el Model).
+        archivos.setFileFilter(extensiones); // Asigna el filtro de extensión .txt
+        archivos.showSaveDialog(viewbloc.jfc_cuadro); //abre el menu para guardar los archivos 
+        File archivo = archivos.getSelectedFile(); 
+        String ruta = archivo.getPath(); //almacena la ruta del archivo.
+        
+        
+        modelbloc.setPath(ruta);
+        modelbloc.setMessage(viewbloc.jta_bloc.getText()); // coloca el contenudo del area de texto en message 
+        this.writeFile(modelbloc.getPath(), modelbloc.getMessage()); // Invoca metodo writeFile 
     }
     
     
@@ -66,12 +83,15 @@ public class ControllerBloc {
     
     public String readFile (String path) {
         try {
-            String row; // Variable que indica una "fila".
-            try (FileReader archivo = new FileReader(path)) { // Permite leer el contenido del archivo.
-                BufferedReader bufferedreader = new BufferedReader(archivo); // Permite almacenar el contenido del archivo de texto de forma temporal.
-                while ((row = bufferedreader.readLine()) != null ) {
-                    viewbloc.jta_bloc.setText(row);
+            String abi;
+            String texto = "";
+            try (FileReader archivo = new FileReader(path)) { // Permite leer el contenido.
+                BufferedReader bufferedreader = new BufferedReader(archivo); // Permite almacenar el contenido temporalmente
+                while ((abi = bufferedreader.readLine()) != null ) {
+                    texto += abi + "\n";
                 }
+                    viewbloc.jta_bloc.setText(abi);
+                
             }
         }
         catch (FileNotFoundException err) { 

@@ -27,10 +27,11 @@ public class ViewBloc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jfc_cuadro = new javax.swing.JFileChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_bloc = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
         jmi_leer = new javax.swing.JMenuItem();
         jmi_guardar = new javax.swing.JMenuItem();
 
@@ -40,15 +41,15 @@ public class ViewBloc extends javax.swing.JFrame {
         jta_bloc.setRows(5);
         jScrollPane1.setViewportView(jta_bloc);
 
-        jMenu.setText("Archivo");
+        jMenu1.setText("Archivo");
 
         jmi_leer.setText("Leer");
-        jMenu.add(jmi_leer);
+        jMenu1.add(jmi_leer);
 
         jmi_guardar.setText("Guardar");
-        jMenu.add(jmi_guardar);
+        jMenu1.add(jmi_guardar);
 
-        jMenuBar1.add(jMenu);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -56,11 +57,31 @@ public class ViewBloc extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jfc_cuadro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addGap(0, 304, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jfc_cuadro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -102,9 +123,10 @@ public class ViewBloc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenu jMenu;
+    public javax.swing.JMenu jMenu1;
     public javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JFileChooser jfc_cuadro;
     public javax.swing.JMenuItem jmi_guardar;
     public javax.swing.JMenuItem jmi_leer;
     public javax.swing.JTextArea jta_bloc;
