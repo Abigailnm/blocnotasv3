@@ -9,7 +9,7 @@ package models;
 public class ModelBloc {
     
     
-    private String path = "C:\\archivos\\archivo.txt"; //  ruta del archivo.
+    private String path = ""; //  ruta del archivo.
 
     public String getPath() {
         return path;

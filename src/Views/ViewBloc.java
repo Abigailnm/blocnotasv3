@@ -34,6 +34,9 @@ public class ViewBloc extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmi_leer = new javax.swing.JMenuItem();
         jmi_guardar = new javax.swing.JMenuItem();
+        jmi_cifrar = new javax.swing.JMenuItem();
+        jmi_descifrar = new javax.swing.JMenuItem();
+        jmi_salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +51,15 @@ public class ViewBloc extends javax.swing.JFrame {
 
         jmi_guardar.setText("Guardar");
         jMenu1.add(jmi_guardar);
+
+        jmi_cifrar.setText("Cifrar");
+        jMenu1.add(jmi_cifrar);
+
+        jmi_descifrar.setText("Descifrar");
+        jMenu1.add(jmi_descifrar);
+
+        jmi_salir.setText("Salir");
+        jMenu1.add(jmi_salir);
 
         jMenuBar1.add(jMenu1);
 
@@ -127,8 +139,11 @@ public class ViewBloc extends javax.swing.JFrame {
     public javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JFileChooser jfc_cuadro;
+    public javax.swing.JMenuItem jmi_cifrar;
+    public javax.swing.JMenuItem jmi_descifrar;
     public javax.swing.JMenuItem jmi_guardar;
     public javax.swing.JMenuItem jmi_leer;
+    public javax.swing.JMenuItem jmi_salir;
     public javax.swing.JTextArea jta_bloc;
     // End of variables declaration//GEN-END:variables
 }

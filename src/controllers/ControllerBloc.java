@@ -32,14 +32,24 @@ public class ControllerBloc {
     ActionListener actionlistener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == viewbloc.jmi_leer) { 
+                   if (e.getSource() == viewbloc.jmi_leer) { // verifica si se selecciona Leer
                 jmi_leer_action_performed();
             }
-            else if (e.getSource() == viewbloc.jmi_guardar) { 
+            else if (e.getSource() == viewbloc.jmi_guardar) { // verifica si se selecciona Guardar
                 jmi_guardar_action_performed();
+            }
+            else if (e.getSource() == viewbloc.jmi_cifrar) { // verifica que sea seleccionado Cifrar
+                jmi_cifrar_action_performed();
+            }
+            else if (e.getSource() == viewbloc.jmi_descifrar) { // verifica que se seleccione descifrar
+                jmi_descifrar_action_performed();
+            }
+            else if (e.getSource() == viewbloc.jmi_salir) { // verifica que sea salir 
+                System.exit(0); // Cierra la aplicación.
             }
         }
     };
+    
     
     
     public ControllerBloc(ModelBloc modelBloc, ViewBloc viewBloc) {
@@ -48,6 +58,9 @@ public class ControllerBloc {
         
         this.viewbloc.jmi_leer.addActionListener(actionlistener);
         this.viewbloc.jmi_guardar.addActionListener(actionlistener);
+        this.viewbloc.jmi_cifrar.addActionListener(actionlistener);
+        this.viewbloc.jmi_descifrar.addActionListener(actionlistener);
+        this.viewbloc.jmi_salir.addActionListener(actionlistener);
         initComponents();
     }
     
@@ -125,6 +138,31 @@ public class ControllerBloc {
             System.err.println("Error entrada y salida " + err.getMessage());
         }
     }
+    public void jmi_descifrar_action_performed() {
+        String area = viewbloc.jta_bloc.getText();
+        String descifrado = "";
+        for (int i = 0; i < area.length(); i++) { // Ciclo para descifrar cada caracter del área de texto.
+            char caracter = area.charAt(i);
+            int ascii_char = (int) caracter;
+            ascii_char = ascii_char - 3; // Cambia el valor ascii del caracter.
+            caracter = (char) ascii_char;
+            descifrado += caracter; // Acumula cada caracter descifrado.
+        }
+        viewbloc.jta_bloc.setText(descifrado); // Muestra el texto descifrado en la JTextAarea de la interfaz.
+    }
+     public void jmi_cifrar_action_performed() {
+        String area = viewbloc.jta_bloc.getText();
+        String cifrado = "";
+        for (int i = 0; i < area.length(); i++) { // Ciclo para cifrar cada caracter del área de texto.
+            char caracter = area.charAt(i);
+            int ascii_char = (int) caracter;
+            ascii_char = ascii_char + 3; // Cambia el valor ascii del caracter.
+            caracter = (char) ascii_char;
+            cifrado += caracter; // Acumula cada caracter cifrado.
+        }
+        viewbloc.jta_bloc.setText(cifrado); // Muestra el texto ya cifrado en la JTextAarea de la interfaz.
+    }
+    
     
     //accede a la interfaz
     public void initComponents() {
